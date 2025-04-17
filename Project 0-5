@@ -73,13 +73,13 @@ def main():
         user_choice = input().strip()
 
         if user_choice == '1':
-            print_vehicles(vehicles)
+           event_print(vehicles)
         elif user_choice == '2':
-            search_vehicle(vehicles)
+            event_search(vehicles)
         elif user_choice == '3':
-            add_vehicle(vehicles)
+            event_add(vehicles)
         elif user_choice == '4':
-            delete_vehicle(vehicles)
+            event_delete(vehicles)
         elif user_choice == '5':
             print("Thank you for using the AutoCountry Vehicle Finder, good-bye!")
             break
