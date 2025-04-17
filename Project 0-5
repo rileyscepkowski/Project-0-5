@@ -1,13 +1,18 @@
-# List of authorized vehicles
-AllowedVehiclesList = [
-    'Ford F-150',
-    'Chevrolet Silverado',
-    'Tesla Cybertruck',
-    'Toyota Tundra',
-    'Nissan Titan',
-    'Rivian R1T',
-    'Ram 1500',
-]
+def load_vehicles():
+    try:
+        with open("vehicles.txt", "r") as file:
+            vehicles = file.readlines()
+            return [vehicle.strip() for vehicle in vehicles]
+    except FileNotFoundError:
+        print("Error. Missing File.")
+        return []
+
+# Function to save vehicles from a list to a file
+def save_vehicles(vehicles):
+    with open("vehicles.txt", "w") as file:
+        for vehicle in vehicles:
+            file.write(f"{vehicle}\n")
+
 
 # Function to print the list of vehicles
 def print_vehicles():
