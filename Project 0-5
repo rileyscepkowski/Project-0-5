@@ -1,0 +1,85 @@
+# List of authorized vehicles
+AllowedVehiclesList = [
+    'Ford F-150',
+    'Chevrolet Silverado',
+    'Tesla Cybertruck',
+    'Toyota Tundra',
+    'Nissan Titan',
+    'Rivian R1T',
+    'Ram 1500',
+]
+
+# Function to print the list of vehicles
+def print_vehicles():
+    print("The AutoCountry sales manager has authorized the purchase and selling of the following vehicles:")
+    for vehicle in AllowedVehiclesList:
+        print(vehicle)
+
+# Function to search for a specific vehicle
+def search_vehicle():
+    print("Please Enter the full Vehicle name:")
+    search_query = input().strip()
+
+    if search_query in AllowedVehiclesList:
+        print(f"{search_query} is an authorized vehicle")
+    else:
+        print(f"{search_query} is not an authorized vehicle, if you received this in error please check the spelling and try again")
+
+# Function to add vehicle from manager
+def add_vehicle():
+    print("Please Enter the full Vehicle name you would like to add:")
+    new_vehicle = input().strip()
+    AllowedVehiclesList.append(new_vehicle)
+    print(f'You have added "{new_vehicle}" as an authorized vehicle')
+
+# Function to remove vehicle from manager
+def delete_vehicle():
+    print("Please Enter the full Vehicle name you would like to REMOVE:")
+    vehicle_to_remove = input().strip()
+    if vehicle_to_remove in AllowedVehiclesList:
+        print(f'Are you sure you want to remove "{vehicle_to_remove}" from the Authorized Vehicles List?')
+        confirmation = input().strip().lower()
+        if confirmation == 'yes':
+            AllowedVehiclesList.remove(vehicle_to_remove)
+            print(f'You have REMOVED "{vehicle_to_remove}" as an authorized vehicle')
+        else:
+            print() # No message stated is necessary per Unit Test #3
+    else:
+        print(f'"{vehicle_to_remove}" is not currently in the Authorized Vehicles List.')
+
+    
+# Function to display the menu and get user input
+def display_menu():
+    print("********************************")
+    print("AutoCountry Vehicle Finder v0.2")
+    print("********************************")
+    print("Please Enter the following number below from the following menu:")
+    print("1. PRINT all Authorized Vehicles")
+    print("2. SEARCH for Authorized Vehicle")
+    print("3. ADD Authorized Vehicle")
+    print("4. DELETE Authorized Vehicle")
+    print("5. Exit")
+    print("********************************")
+
+# Main Program Function
+def main():
+    while True:
+        display_menu()
+        user_choice = input()
+
+        if user_choice == '1':
+            print_vehicles()
+        elif user_choice == '2':
+            search_vehicle()
+        elif user_choice == '3':
+            add_vehicle()
+        elif user_choice == '4':
+            delete_vehicle()
+        elif user_choice == '5':
+            print("Thank you for using the AutoCountry Vehicle Finder, good-bye!")
+            break
+        else:
+            print("Invalid choice, please try again.")
+
+if __name__ == "__main__":
+    main()
