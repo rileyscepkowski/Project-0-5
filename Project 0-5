@@ -8,51 +8,7 @@ def load_vehicles():
         return []
 
 # Function to save vehicles from a list to a file
-def save_vehicles(vehicles):
-    with open("vehicles.txt", "w") as file:
-        for vehicle in vehicles:
-            file.write(f"{vehicle}\n")
 
-
-# Function to print the list of vehicles
-def print_vehicles(vehicles):
-    print("The AutoCountry sales manager has authorized the purchase and selling of the following vehicles:")
-    for vehicle in vehicles:
-        print(vehicle)
-
-# Function to search for a specific vehicle
-def search_vehicle(vehicles):
-    print("Please Enter the full Vehicle name:")
-    search_query = input().strip()
-    if search_query in vehicles:
-        print(f"{search_query} is an authorized vehicle")
-    else:
-        print(f"{search_query} is not an authorized vehicle, if you received this in error please check the spelling and try again")
-
-# Function to add vehicle from manager
-def add_vehicle(vehicles):
-    print("Please Enter the full Vehicle name you would like to add:")
-    new_vehicle = input().strip()
-    vehicles.append(new_vehicle)
-    print(f'You have added "{new_vehicle}" as an authorized vehicle')
-
-# Function to remove vehicle from manager
-def delete_vehicle(vehicles):
-    print("Please Enter the full Vehicle name you would like to REMOVE:")
-    vehicle_to_remove = input().strip()
-    if vehicle_to_remove in vehicles:
-        print(f'Are you sure you want to remove "{vehicle_to_remove}" from the Authorized Vehicles List?')
-        confirmation = input().strip().lower()
-        if confirmation == 'yes':
-            vehicles.remove(vehicle_to_remove)
-            save_vehicles(vehicles)
-            print(f'You have REMOVED "{vehicle_to_remove}" as an authorized vehicle')
-        else:
-            print() # No message stated is necessary per Unit Test #3
-    else:
-        print(f'"{vehicle_to_remove}" is not currently in the Authorized Vehicles List.')
-
-    
 # Function to display the menu and get user input
 def display_menu():
     print("********************************")
